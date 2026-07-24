@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soptak Gaming | Social Links</title>
+    <link rel="icon" type="image/png" href="web_img.png">
+    <meta name="description" content="Follow Soptak Gaming on YouTube, Instagram, and Facebook. Gaming content, streams, and community.">
+    
+    <meta property="og:title" content="Soptak Gaming | Social Links">
+    <meta property="og:description" content="Follow Soptak Gaming on all social platforms.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/FF0033/FFFFFF?text=Soptak+Gaming">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Knewave&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <style>
+        /* ================= CSS VARIABLES & THEME ================= */
+        :root {
+            /* Colors */
+            --youtube-primary: #FF0033;
+            --youtube-dark: #CC0029;
+            --youtube-btn: #FFFFFF;
+            
+            --instagram-gradient: linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5);
+            --instagram-dark: #D62976;
+            
+            --facebook-primary: #1877F2;
+            --facebook-light: #E7F3FF;
+            
+            --bg-dark: #0F0F0F;
+            --bg-dark-card: #1A1A1A;
+            --bg-light: #F5F5F5;
+            --bg-light-card: #FFFFFF;
+            
+            --text-dark: #FFFFFF;
+            --text-light: #1A1A1A;
+            --text-muted-dark: #AAAAAA;
+            --text-muted-light: #666666;
+            
+            /* Spacing Scale */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2.5rem;
+            --space-xl: 4rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.15);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.25);
+            --shadow-glow-youtube: 0 0 40px rgba(255,0,51,0.3);
+            --shadow-glow-insta: 0 0 40px rgba(214,41,118,0.3);
+            --shadow-glow-facebook: 0 0 40px rgba(24,119,242,0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+            
+            /* Current Theme (defaults to dark) */
+            --bg: var(--bg-dark);
+            --bg-card: var(--bg-dark-card);
+            --text: var(--text-dark);
+            --text-muted: var(--text-muted-dark);
+
+            /* CSS Variables for Twitch and Kick */
+            --twitch-primary: #9146FF;
+            --twitch-dark: #6441A5;
+            --kick-primary: #53FC18;
+            --kick-dark: #00E700;
+            --kick-btn: #000000;
+            
+            --shadow-glow-twitch: 0 0 40px rgba(145, 70, 255, 0.3);
+            --shadow-glow-kick: 0 0 40px rgba(83, 252, 24, 0.3);
+        }
+        
+        /* Auto dark/light based on system preference */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: var(--bg-light);
+                --bg-card: var(--bg-light-card);
+                --text: var(--text-light);
+                --text-muted: var(--text-muted-light);
+            }
+        }
+        
+        /* ================= RESET & BASE ================= */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background var(--transition-slow), color var(--transition-slow);
+        }
+        
+        /* ================= SKIP LINK (Accessibility) ================= */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--youtube-primary);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            z-index: 10000;
+            transition: top var(--transition-fast);
+        }
+        
+        .skip-link:focus {
+            top: var(--space-sm);
+        }
+        
+        /* ================= HEADER ================= */
+        .site-header {
+            text-align: center;
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .site-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-xs);
+            background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .site-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        /* ================= MAIN GRID ================= */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-md) var(--space-xl);
+        }
+        
+        /* ================= SOCIAL CARD ================= */
+        .social-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+            will-change: transform;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transition: height var(--transition-slow);
+        }
+        
+        .social-card:hover::before {
+            height: 6px;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        /* Card platform-specific top borders */
+        .social-card[data-platform="youtube"]::before {
+            background: var(--youtube-primary);
+        }
+        
+        .social-card[data-platform="youtube"]:hover {
+            box-shadow: var(--shadow-lg), var(--shadow-glow-youtube);
+        }
+        
+        .social-card[data-platform="instagram"]::before {
+            background: var(--instagram-gradient);
+        }
+        
+        .social-card[data-platform="instagram"]:hover {
+            box-shadow: var(--shadow-lg), var(--shadow-glow-insta);
+        }
+        
+        .social-card[data-platform="facebook"]::before {
+            background: var(--facebook-primary);
+        }
+        
+        .social-card[data-platform="facebook"]:hover {
+            box-shadow: var(--shadow-lg), var(--shadow-glow-facebook);
+        }
+
+        .social-card[data-platform="twitch"]::before {
+            background: var(--twitch-primary);
+        }
+        .social-card[data-platform="twitch"]:hover {
+            box-shadow: var(--shadow-lg), var(--shadow-glow-twitch);
+        }
+
+        .social-card[data-platform="kick"]::before {
+            background: var(--kick-primary);
+        }
+        .social-card[data-platform="kick"]:hover {
+            box-shadow: var(--shadow-lg), var(--shadow-glow-kick);
+        }
+        
+        /* Card Label */
+        .card-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: var(--space-md);
+        }
+        
+        /* Avatar */
+        .avatar-wrapper {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto var(--space-md);
+            position: relative;
+            border-radius: 50%;
+            padding: 4px;
+        }
+        
+        .avatar-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 4px;
+            background: var(--text-muted);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            transition: background var(--transition-base);
+        }
+        
+        .social-card[data-platform="youtube"] .avatar-wrapper::before {
+            background: var(--youtube-primary);
+        }
+        
+        .social-card[data-platform="instagram"] .avatar-wrapper::before {
+            background: var(--instagram-gradient);
+        }
+        
+        .social-card[data-platform="facebook"] .avatar-wrapper::before {
+            background: var(--facebook-primary);
+        }
+
+        .social-card[data-platform="twitch"] .avatar-wrapper::before {
+            background: var(--twitch-primary);
+        }
+
+        .social-card[data-platform="kick"] .avatar-wrapper::before {
+            background: var(--kick-primary);
+        }
+        
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--bg);
+            transition: transform var(--transition-base);
+        }
+        
+        .social-card:hover .avatar {
+            transform: scale(1.05);
+        }
+        
+        /* Avatar fallback */
+        .avatar-fallback {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: var(--bg);
+            color: var(--text-muted);
+        }
+        
+        /* Platform Name */
+        .platform-name {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+            letter-spacing: -0.02em;
+        }
+        
+        .social-card[data-platform="instagram"] .platform-name {
+            font-family: 'Pacifico', cursive;
+            font-weight: 400;
+            font-size: clamp(2.2rem, 4.5vw, 3rem);
+        }
+        
+        /* Handle */
+        .handle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+        }
+        
+        .handle i {
+            font-size: 0.875rem;
+        }
+        
+        /* Stats Row */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-md);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity var(--transition-base), transform var(--transition-base);
+        }
+        
+        .social-card:hover .stats {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1.2;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+        }
+        
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0);
+            transition: background var(--transition-fast);
+        }
+        
+        .cta-button:hover::after {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .cta-button:active {
+            transform: scale(0.96);
+        }
+        
+        .cta-button i {
+            font-size: 1.125rem;
+        }
+        
+        /* Platform-specific buttons */
+        .btn-youtube {
+            background: var(--youtube-btn);
+            color: #212121;
+            box-shadow: 0 4px 15px rgba(33,33,33,0.4);
+        }
+
+        .btn-youtube:hover {
+            box-shadow: 0 4px 25px rgba(245, 228, 245, 0.411);
+        }
+        
+        .btn-instagram {
+            background: var(--instagram-gradient);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(214,41,118,0.4);
+        }
+        
+        .btn-instagram:hover {
+            box-shadow: 0 6px 25px rgba(214,41,118,0.5);
+        }
+        
+        .btn-facebook {
+            background: #FFFFFF;
+            color: var(--facebook-primary);
+            box-shadow: 0 4px 15px rgba(24,119,242,0.2);
+        }
+        
+        .btn-facebook:hover {
+            box-shadow: 0 6px 25px rgba(24,119,242,0.3);
+        }
+
+        .btn-twitch {
+            background: var(--twitch-primary);
+            color: #FFFFFF;
+            box-shadow: 0 4px 15px rgba(145, 70, 255, 0.4);
+        }
+        .btn-twitch:hover {
+            box-shadow: 0 6px 25px rgba(145, 70, 255, 0.5);
+        }
+
+        .btn-kick {
+            background: var(--kick-primary);
+            color: #000000;
+            box-shadow: 0 4px 15px rgba(83, 252, 24, 0.4);
+        }
+        .btn-kick:hover {
+            box-shadow: 0 6px 25px rgba(83, 252, 24, 0.5);
+        }
+        
+        /* Action Icons */
+        .action-icons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(128,128,128,0.15);
+            width: 100%;
+        }
+        
+        .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            background: rgba(128,128,128,0.08);
+            transition: all var(--transition-fast);
+            cursor: pointer;
+            border: none;
+            position: relative;
+        }
+        
+        .action-icon:hover {
+            color: var(--text);
+            background: rgba(128,128,128,0.15);
+            transform: translateY(-3px);
+        }
+        
+        .action-icon.copied {
+            color: #22C55E;
+        }
+        
+        /* Tooltip */
+        .action-icon::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: var(--text);
+            color: var(--bg);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition-fast);
+        }
+        
+        .action-icon:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        /* ================= FOOTER ================= */
+        .site-footer {
+            text-align: center;
+            padding: var(--space-lg) var(--space-md);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .site-footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .site-footer a:hover {
+            color: var(--text);
+        }
+        
+        /* ================= ANIMATIONS ================= */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .social-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .social-card:nth-child(1) { animation-delay: 0.1s; }
+        .social-card:nth-child(2) { animation-delay: 0.2s; }
+        .social-card:nth-child(3) { animation-delay: 0.3s; }
+        .social-card:nth-child(4) { animation-delay: 0.4s; }
+        .social-card:nth-child(5) { animation-delay: 0.5s; }
+        
+        /* ================= REDUCED MOTION ================= */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .social-card {
+                opacity: 1;
+            }
+            
+            .stats {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+            
+            .avatar-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .stats {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .site-header {
+                padding: var(--space-lg) var(--space-sm) var(--space-md);
+            }
+            
+            .social-card {
+                padding: var(--space-md);
+            }
+            
+            .avatar-wrapper {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        /* ================= PRINT STYLES ================= */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .social-card {
+                break-inside: avoid;
+                box-shadow: none !important;
+                border: 1px solid #ddd;
+            }
+            
+            .cta-button {
+                background: #333 !important;
+                color: white !important;
+                box-shadow: none !important;
+            }
+            
+            .action-icons {
+                display: none;
+            }
+        }
+        
+        /* ================= LOADING STATE ================= */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(128,128,128,0.1) 25%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .made-by{
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .creator-name{
+            margin: 5px 0 0;
+            font-size: 28px;
+            font-family: "Bebas Neue", cursive;
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <h1>Soptak Gaming</h1>
+        <p>Connect with me across all platforms</p>
+    </header>
+    
+    <main id="main-content" class="cards-container">
+        
+        <article class="social-card" data-platform="youtube" aria-label="YouTube channel card">
+            <span class="card-label">Like & Subscribe</span>
+            
+            <div class="avatar-wrapper">
+                <img 
+                    src="youtube-circle.png" 
+                    alt="Soptak Gaming YouTube channel avatar" 
+                    class="avatar"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="avatar-fallback" style="display:none;">
+                    <i class="fa-brands fa-youtube" style="color: var(--youtube-primary);"></i>
+                </div>
+            </div>
+            
+            <h2 class="platform-name">YouTube</h2>
+            <p class="handle">
+                <i class="fa-brands fa-youtube"></i>
+                @soptakgaming
+            </p>
+            <!-- ===== SOCIAL NUMBER | EDIT HERE ===== -->
+             <div class="stats" aria-label="Channel statistics">
+                <div class="stat">
+                    <span class="stat-value" data-count="true">124</span>
+                    <span class="stat-label">Subscribers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" data-count="true">63</span>
+                    <span class="stat-label">Videos</span>
+                </div>
+            </div>
+            
+            <a 
+                href="https://youtube.com/@soptakgaming?si=L8xSRPy4EunPB8CW" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="cta-button btn-youtube"
+                aria-label="Subscribe to Soptak Gaming on YouTube"
+            >
+                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                Subscribe
+            </a>
+            
+            <div class="action-icons" role="group" aria-label="YouTube card actions">
+                <button class="action-icon" data-tooltip="Copy link" data-copy="https://youtube.com/@soptakgaming" aria-label="Copy YouTube channel link">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Share" aria-label="Share YouTube channel">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Open" aria-label="Open YouTube channel in new tab" onclick="window.open('https://youtube.com/@soptakgaming','_blank')">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </button>
+            </div>
+        </article>
+        
+        <article class="social-card" data-platform="instagram" aria-label="Instagram profile card">
+            <span class="card-label">Follow Me On</span>
+            
+            <div class="avatar-wrapper">
+                <img 
+                    src="instagram-circle.png" 
+                    alt="Soptak Gaming Instagram profile avatar" 
+                    class="avatar"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="avatar-fallback" style="display:none;">
+                    <i class="fa-brands fa-instagram" style="color: var(--instagram-dark);"></i>
+                </div>
+            </div>
+            
+            <h2 class="platform-name">Instagram</h2>
+            <p class="handle">
+                <i class="fa-brands fa-instagram"></i>
+                @soptakgaming666
+            </p>
+            
+            <div class="stats" aria-label="Profile statistics">
+                <div class="stat">
+                    <span class="stat-value" data-count="true">120</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" data-count="true">16</span>
+                    <span class="stat-label">Posts</span>
+                </div>
+            </div>
+            
+            <a 
+                href="https://www.instagram.com/soptakgaming666" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="cta-button btn-instagram"
+                aria-label="Follow Soptak Gaming on Instagram"
+            >
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                Follow
+            </a>
+            
+            <div class="action-icons" role="group" aria-label="Instagram card actions">
+                <button class="action-icon" data-tooltip="Copy link" data-copy="https://www.instagram.com/soptakgaming666" aria-label="Copy Instagram profile link">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Share" aria-label="Share Instagram profile">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Message" aria-label="Send message on Instagram" onclick="window.open('https://www.instagram.com/soptakgaming666','_blank')">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </article>
+        
+        <article class="social-card" data-platform="facebook" aria-label="Facebook page card">
+            <span class="card-label">Follow Me On</span>
+            
+            <div class="avatar-wrapper">
+                <img 
+                    src="facebook-circle.png" 
+                    alt="Soptak Gaming Facebook page avatar" 
+                    class="avatar"
+                    loading="lazy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                >
+                <div class="avatar-fallback" style="display:none;">
+                    <i class="fa-brands fa-facebook-f" style="color: var(--facebook-primary);"></i>
+                </div>
+            </div>
+            
+            <h2 class="platform-name">Facebook</h2>
+            <p class="handle">
+                <i class="fa-brands fa-facebook-f"></i>
+                @soptakgaming666
+            </p>
+            
+            <div class="stats" aria-label="Page statistics">
+                <div class="stat">
+                    <span class="stat-value" data-count="true">80</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value" data-count="true">11</span>
+                    <span class="stat-label">Likes</span>
+                </div>
+            </div>
+             <a 
+                href="https://www.facebook.com/share/18nfWcqgJE/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="cta-button btn-facebook"
+                aria-label="Follow Soptak Gaming on Facebook"
+            >
+                <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                Follow
+            </a>
+            
+            <div class="action-icons" role="group" aria-label="Facebook card actions">
+                <button class="action-icon" data-tooltip="Copy link" data-copy="https://www.facebook.com/share/18nfWcqgJE/" aria-label="Copy Facebook page link">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Share" aria-label="Share Facebook page">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+                <button class="action-icon" data-tooltip="Like" aria-label="Like Facebook page" onclick="window.open('https://www.facebook.com/share/18nfWcqgJE/','_blank')">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </button>
+            </div>
+        </article>
+        
+    </main>
+    
+    <footer class="site-footer">
+        <p>© 2026 Soptak Gaming. All rights reserved. |
+            <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+                Back to top
+            </a>
+        </p>
+    </footer>
+    <footer class="site-footer"> 
+        <p class="made-by">Made By</p>
+        <h3 class="creator-name">SOPTAK & RIVULET</h3>
+    </footer >
+    
+    <script>
+        // ================= COPY LINK FEATURE =================
+        document.querySelectorAll('[data-copy]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const url = btn.dataset.copy;
+                try {
+                    await navigator.clipboard.writeText(url);
+                    const icon = btn.querySelector('i');
+                    const originalClass = icon.className;
+                    
+                    icon.className = 'fa-solid fa-check';
+                    btn.classList.add('copied');
+                    btn.setAttribute('data-tooltip', 'Copied!');
+                    
+                    setTimeout(() => {
+                        icon.className = originalClass;
+                        btn.classList.remove('copied');
+                        btn.setAttribute('data-tooltip', 'Copy link');
+                    }, 2000);
+                } catch (err) {
+                    // Fallback for older browsers
+                    const textarea = document.createElement('textarea');
+                    textarea.value = url;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                }
+            });
+        });
+        
+        // ================= SHARE FEATURE =================
+        document.querySelectorAll('[data-tooltip="Share"]').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const card = btn.closest('.social-card');
+                const platform = card.dataset.platform;
+                const url = card.querySelector('.cta-button').href;
+                const title = `Follow Soptak Gaming on ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
+                
+                if (navigator.share) {
+                    try {
+                        await navigator.share({ title, url });
+                    } catch (err) {
+                        // User cancelled
+                    }
+                } else {
+                    // Fallback: copy to clipboard
+                    await navigator.clipboard.writeText(url);
+                    btn.setAttribute('data-tooltip', 'Link copied!');
+                    setTimeout(() => {
+                        btn.setAttribute('data-tooltip', 'Share');
+                    }, 2000);
+                }
+            });
+        });
+        
+        // ================= ANALYTICS (Simple click tracking) =================
+        document.querySelectorAll('.cta-button, .action-icon').forEach(el => {
+            el.addEventListener('click', () => {
+                const platform = el.closest('.social-card')?.dataset.platform || 'unknown';
+                const action = el.classList.contains('cta-button') ? 'cta_click' : 'action_click';
+                console.log(`[Analytics] ${action} on ${platform}`);
+            });
+        });
+        
+        // ================= LAZY LOAD IMAGES WITH FADE =================
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.5s ease';
+                    img.onload = () => { img.style.opacity = '1'; };
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.avatar').forEach(img => imageObserver.observe(img));
+        
+        // ================= KEYBOARD NAVIGATION ENHANCEMENT =================
+        document.querySelectorAll('.social-card').forEach(card => {
+            card.setAttribute('tabindex', '0');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    card.querySelector('.cta-button')?.click();
+                }
+            });
+        });
+
+        // ================= DYNAMIC CARDS (TWITCH & KICK) =================
+        document.addEventListener("DOMContentLoaded", () => {
+            const mainContainer = document.getElementById("main-content");
+
+            const newCardsHTML = `
+                <article class="social-card" data-platform="twitch" aria-label="Twitch channel card">
+                    <span class="card-label">Watch Live On</span>
+                    
+                    <div class="avatar-wrapper">
+                        <img 
+                            src="twitch-circle.png" 
+                            alt="Soptak Gaming Twitch avatar" 
+                            class="avatar"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="avatar-fallback" style="display:none;">
+                            <i class="fa-brands fa-twitch" style="color: var(--twitch-primary);"></i>
+                        </div>
+                    </div>
+                    
+                    <h2 class="platform-name">Twitch</h2>
+                    <p class="handle">
+                        <i class="fa-brands fa-twitch"></i>
+                        @soptakgaming
+                    </p>
+                    
+                    <div class="stats" aria-label="Channel statistics">
+                        <div class="stat">
+                            <span class="stat-value" data-count="true"> Loading ...</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" data-count="true"> Loading ...</span>
+                            <span class="stat-label">Views</span>
+                        </div>
+                    </div>
+                    
+                    <a 
+                        href="https://www.twitch.tv/soptakgaming" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cta-button btn-twitch"
+                        aria-label="Follow Soptak Gaming on Twitch"
+                    >
+                        <i class="fa-brands fa-twitch" aria-hidden="true"></i>
+                        Follow
+                    </a>
+                    
+                    <div class="action-icons" role="group" aria-label="Twitch card actions">
+                        <button class="action-icon" data-tooltip="Copy link" data-copy="https://www.twitch.tv/soptakgaming" aria-label="Copy Twitch channel link">
+                            <i class="fa-solid fa-link"></i>
+                        </button>
+                        <button class="action-icon" data-tooltip="Share" aria-label="Share Twitch channel">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                        <button class="action-icon" data-tooltip="Open" aria-label="Open Twitch channel in new tab" onclick="window.open('https://www.twitch.tv/soptakgaming','_blank')">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="social-card" data-platform="kick" aria-label="Kick channel card">
+                    <span class="card-label">Watch Live On</span>
+                    
+                    <div class="avatar-wrapper">
+                        <img 
+                            src="kick-circle.png" 
+                            alt="Soptak Gaming Kick avatar" 
+                            class="avatar"
+                            loading="lazy"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
+                        <div class="avatar-fallback" style="display:none;">
+                            <i class="fa-solid fa-gamepad" style="color: var(--kick-primary);"></i>
+                        </div>
+                    </div>
+                    
+                    <h2 class="platform-name">Kick</h2>
+                    <p class="handle">
+                        <i class="fa-solid fa-gamepad"></i>
+                        @SoptakGaming
+                    </p>
+                    
+                    <div class="stats" aria-label="Channel statistics">
+                        <div class="stat">
+                            <span class="stat-value" data-count="true">Loading ...</span>
+                            <span class="stat-label">Followers</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" data-count="true">Loading ...</span>
+                            <span class="stat-label">Streams</span>
+                        </div>
+                    </div>
+                    
+                    <a 
+                        href="https://kick.com/soptakgaming" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="cta-button btn-kick"
+                        aria-label="Follow Soptak Gaming on Kick"
+                    >
+                        <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+                        Follow
+                    </a>
+                    
+                    <div class="action-icons" role="group" aria-label="Kick card actions">
+                        <button class="action-icon" data-tooltip="Copy link" data-copy="https://kick.com/soptakgaming" aria-label="Copy Kick channel link">
+                            <i class="fa-solid fa-link"></i>
+                        </button>
+                        <button class="action-icon" data-tooltip="Share" aria-label="Share Kick channel">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                        <button class="action-icon" data-tooltip="Open" aria-label="Open Kick channel in new tab" onclick="window.open('https://kick.com/soptakgaming','_blank')">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                    </div>
+                </article>
+            `;
+
+            if (mainContainer) {
+                mainContainer.insertAdjacentHTML('beforeend', newCardsHTML);
+
+                const newCards = mainContainer.querySelectorAll('.social-card[data-platform="twitch"], .social-card[data-platform="kick"]');
+                
+                newCards.forEach(card => {
+                    card.setAttribute('tabindex', '0');
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            card.querySelector('.cta-button')?.click();
+                        }
+                    });
+
+                    const img = card.querySelector('.avatar');
+                    if (img && typeof imageObserver !== 'undefined') {
+                        imageObserver.observe(img);
+                    }
+
+                    card.querySelectorAll('[data-copy]').forEach(btn => {
+                        btn.addEventListener('click', async () => {
+                            const url = btn.dataset.copy;
+                            try {
+                                await navigator.clipboard.writeText(url);
+                                const icon = btn.querySelector('i');
+                                const originalClass = icon.className;
+                                
+                                icon.className = 'fa-solid fa-check';
+                                btn.classList.add('copied');
+                                btn.setAttribute('data-tooltip', 'Copied!');
+                                
+                                setTimeout(() => {
+                                    icon.className = originalClass;
+                                    btn.classList.remove('copied');
+                                    btn.setAttribute('data-tooltip', 'Copy link');
+                                }, 2000);
+                            } catch (err) {
+                                const textarea = document.createElement('textarea');
+                                textarea.value = url;
+                                textarea.style.position = 'fixed';
+                                textarea.style.opacity = '0';
+                                document.body.appendChild(textarea);
+                                textarea.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(textarea);
+                            }
+                        });
+                    });
+
+                    card.querySelectorAll('[data-tooltip="Share"]').forEach(btn => {
+                        btn.addEventListener('click', async () => {
+                            const platform = card.dataset.platform;
+                            const url = card.querySelector('.cta-button').href;
+                            const title = `Follow Soptak Gaming on ${platform.charAt(0).toUpperCase() + platform.slice(1)}`;
+                            
+                            if (navigator.share) {
+                                try {
+                                    await navigator.share({ title, url });
+                                } catch (err) {}
+                            } else {
+                                await navigator.clipboard.writeText(url);
+                                btn.setAttribute('data-tooltip', 'Link copied!');
+                                setTimeout(() => {
+                                    btn.setAttribute('data-tooltip', 'Share');
+                                }, 2000);
+                            }
+                        });
+                    });
+
+                    card.querySelectorAll('.cta-button, .action-icon').forEach(el => {
+                        el.addEventListener('click', () => {
+                            const action = el.classList.contains('cta-button') ? 'cta_click' : 'action_click';
+                            console.log(`[Analytics] ${action} on ${card.dataset.platform}`);
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
